@@ -9,3 +9,5 @@ jobs:
   checkout:
     post:
       - git submodule update --init
+  steps:
+    run: meteor run
