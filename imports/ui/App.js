@@ -56,6 +56,6 @@ const GroupsQuery = gql`
   }
 `
 
-export default graphql(groupsQuery, {
+export default graphql(GroupsQuery, {
   props: ({ data }) => ({ ...data })
 })(withApollo(App))
