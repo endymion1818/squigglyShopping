@@ -1,10 +1,11 @@
-machine:
-  node:
-    version: 8.9.3
-dependencies:
-  override:
-    - curl https://install.meteor.com | /bin/sh
-    - npm install
-checkout:
-  post:
-    - git submodule update --init
+jobs:
+  machine:
+    node:
+      version: 8.9.3
+  dependencies:
+    override:
+      - curl https://install.meteor.com | /bin/sh
+      - npm install
+  checkout:
+    post:
+      - git submodule update --init
