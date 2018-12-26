@@ -2,34 +2,34 @@ import React from "react"
 import gql from "graphql-tag"
 import { graphql } from "react-apollo"
 import { withApollo } from "react-apollo"
-import ResolutionForm from "./ResolutionForm"
-import GoalForm from "./GoalForm"
-import Goal from "./resolutions/Goal"
+import GroupForm from "./GroupForm"
+import GoalForm from "./ItemForm"
+import Item from "./groups/Item"
 import UserForm from "./UserForm"
 
-const App = ({ loading, resolutions, client, user }) => {
+const App = ({ loading, groups, client, user }) => {
   if (loading) return null
   return (
     <div>
       <UserForm user={user} client={client} />
-      {user._id && <ResolutionForm />}
+      {user._id && <GroupForm />}
       {user._id && (
         <ul>
-          {resolutions.map(resolution => (
-            <li key={resolution._id}>
+          {groups.map(group => (
+            <li key={group._id}>
               <span
                 style={{
-                  textDecoration: resolution.completed ? "line-through" : "none"
+                  textDecoration: group.completed ? "line-through" : "none"
                 }}
               >
-                {resolution.name}
+                {group.name}
               </span>
               <ul>
-                {resolution.goals.map(goal => (
-                  <Goal goal={goal} key={goal._id} />
+                {group.items.map(item => (
+                  <Item item={item} key={item._id} />
                 ))}
               </ul>
-              <GoalForm resolutionId={resolution._id} />
+              <GoalForm groupId={group._id} />
             </li>
           ))}
         </ul>
@@ -38,13 +38,13 @@ const App = ({ loading, resolutions, client, user }) => {
   )
 }
 
-const resolutionsQuery = gql`
-  query Resolutions {
-    resolutions {
+const GroupsQuery = gql`
+  query Groups {
+    groups {
       _id
       name
       completed
-      goals {
+      items {
         _id
         name
         completed
@@ -56,6 +56,6 @@ const resolutionsQuery = gql`
   }
 `
 
-export default graphql(resolutionsQuery, {
+export default graphql(GroupsQuery, {
   props: ({ data }) => ({ ...data })
 })(withApollo(App))

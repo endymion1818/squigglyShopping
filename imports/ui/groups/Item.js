@@ -10,31 +10,31 @@ const toggleGoal = gql`
   }
 `
 
-class Goal extends React.Component {
+class Item extends React.Component {
   toggleGoal = () => {
     this.props.toggleGoal({
       variables: {
-        id: this.props.goal._id
+        id: this.props.item._id
       }
     })
   }
   render() {
-    const { goal } = this.props
+    const { item } = this.props
     return (
       <li>
         <label
-          htmlFor="goal"
+          htmlFor="item"
           style={{
-            textDecoration: goal.completed ? "line-through" : "none"
+            textDecoration: item.completed ? "line-through" : "none"
           }}
         >
           <input
             type="checkbox"
-            name="goal"
+            name="item"
             onChange={this.toggleGoal}
-            checked={goal.completed}
+            checked={item.completed}
           />
-          {goal.name}
+          {item.name}
         </label>
       </li>
     )
@@ -43,6 +43,6 @@ class Goal extends React.Component {
 export default graphql(toggleGoal, {
   name: "toggleGoal",
   options: {
-    refetchQueries: ["Resolutions"]
+    refetchQueries: ["Groups"]
   }
-})(Goal)
+})(Item)

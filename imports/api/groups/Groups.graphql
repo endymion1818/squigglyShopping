@@ -1,0 +1,14 @@
+type Group {
+  _id: String!
+  name: String!
+  items: [Item]
+  completed: Boolean
+}
+
+type Query {
+  groups: [Group]
+}
+
+type Mutation {
+  createGroup(name: String!): Group
+}
