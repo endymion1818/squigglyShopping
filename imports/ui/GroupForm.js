@@ -2,21 +2,21 @@ import React, { Component } from "react"
 import gql from "graphql-tag"
 import { graphql } from "react-apollo"
 
-const createResolution = gql`
-  mutation createResolution($name: String!) {
-    createResolution(name: $name) {
+const createGroup = gql`
+  mutation createGroup($name: String!) {
+    createGroup(name: $name) {
       _id
     }
   }
 `
 
-class ResolutionForm extends Component {
+class GroupForm extends Component {
   state = {
     error: null
   }
   submitForm = () => {
     this.props
-      .createResolution({
+      .createGroup({
         variables: {
           name: this.name.value
         }
@@ -39,9 +39,9 @@ class ResolutionForm extends Component {
   }
 }
 
-export default graphql(createResolution, {
-  name: "createResolution",
+export default graphql(createGroup, {
+  name: "createGroup",
   options: {
-    refetchQueries: ["Resolutions"]
+    refetchQueries: ["Groups"]
   }
-})(ResolutionForm)
+})(GroupForm)
