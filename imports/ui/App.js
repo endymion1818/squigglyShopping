@@ -17,13 +17,13 @@ const App = ({ loading, groups, client, user }) => {
         <ul className="shoppinglist--group">
           {groups.map(group => (
             <li key={group._id}>
-              <span
+              <h3
                 style={{
                   textDecoration: group.completed ? "line-through" : "none"
                 }}
               >
                 {group.name}
-              </span>
+              </h3>
               <ul>
                 {group.items.map(item => (
                   <Item item={item} key={item._id} />

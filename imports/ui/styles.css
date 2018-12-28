@@ -56,14 +56,34 @@ input {
 }
 .shoppinglist--group {
   margin: 1rem;
+  list-style: none;
+  padding-left: 0;
 }
-.shoppinglist--groupform {
+.shoppinglist--groupform,
+.shoppinglist--itemform {
   margin: 1rem;
   display: flex;
 }
-.shoppinglist--groupform input {
+.shoppinglist--group > li {
+  padding: 0.5rem;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+}
+.shoppinglist--group > li + .shoppinglist--group > li {
+  margin-bottom: 1rem;
+}
+.shoppinglist--group > li h3 {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid white;
+}
+.shoppinglist--groupform input,
+.shoppinglist--itemform input {
   flex-grow: 1;
 }
-.shoppinglist--groupform button {
+.shoppinglist--groupform button,
+.shoppinglist--itemform button {
   flex-grow: 0;
+}
+.shoppinglist--itemform {
+  margin-top: 1rem;
 }

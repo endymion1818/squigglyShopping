@@ -29,7 +29,7 @@ class GoalForm extends Component {
 
   render() {
     return (
-      <div className="item--form">
+      <div className="shoppinglist--itemform">
         <input
           type="text"
           ref={input => (this.name = input)}

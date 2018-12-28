@@ -35,7 +35,7 @@ class GroupForm extends Component {
         <input
           type="text"
           ref={input => (this.name = input)}
-          placeholder="aisle one top"
+          placeholder="New group"
         />
         <button onClick={this.submitForm}>Submit</button>
       </div>
