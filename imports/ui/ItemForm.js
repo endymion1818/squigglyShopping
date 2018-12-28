@@ -2,9 +2,9 @@ import React, { Component } from "react"
 import gql from "graphql-tag"
 import { graphql } from "react-apollo"
 
-const createGoal = gql`
-  mutation createGoal($name: String!, $groupId: String!) {
-    createGoal(name: $name, groupId: $groupId) {
+const createItem = gql`
+  mutation createItem($name: String!, $groupId: String!) {
+    createItem(name: $name, groupId: $groupId) {
       _id
     }
   }
@@ -13,7 +13,7 @@ const createGoal = gql`
 class GoalForm extends Component {
   submitForm = () => {
     this.props
-      .createGoal({
+      .createItem({
         variables: {
           name: this.name.value,
           groupId: this.props.groupId
@@ -37,8 +37,8 @@ class GoalForm extends Component {
   }
 }
 
-export default graphql(createGoal, {
-  name: "createGoal",
+export default graphql(createItem, {
+  name: "createItem",
   options: {
     refetchQueries: ["Group"]
   }
