@@ -20,8 +20,8 @@ export default {
         groupId: group._id
       }).fetch()
       if (items.length === 0) return false
-      const completedGoals = items.filter(item => item.completed)
-      return items.length === completedGoals.length
+      const completedItems = items.filter(item => item.completed)
+      return items.length === completedItems.length
     }
   },
   Mutation: {
