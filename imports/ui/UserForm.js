@@ -11,14 +11,21 @@ class UserForm extends React.Component {
     const { registerOrLogin } = this.state
     if (user._id) {
       return (
-        <button
-          onClick={() => {
-            Meteor.logout()
-            client.resetStore()
-          }}
-        >
-          Logout
-        </button>
+        <header className="shoppinglist--header">
+          <h2>hello, username</h2>
+          <div>
+            <div>0</div>
+            <small>items left</small>
+          </div>
+          <button
+            onClick={() => {
+              Meteor.logout()
+              client.resetStore()
+            }}
+          >
+            Logout
+          </button>
+        </header>
       )
     }
     return (

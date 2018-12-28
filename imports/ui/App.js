@@ -15,7 +15,7 @@ const App = ({ loading, groups, client, user }) => {
       <UserForm user={user} client={client} />
       {user._id && <GroupForm />}
       {user._id && (
-        <ul className="group">
+        <ul className="shoppinglist--group">
           {groups.map(group => (
             <li key={group._id}>
               <span

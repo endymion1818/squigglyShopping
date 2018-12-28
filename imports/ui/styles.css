@@ -1,3 +1,6 @@
+:root {
+  --colourmain: rebeccapurple;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -6,7 +9,7 @@ body {
 main {
   height: 100vh;
   color: white;
-  background-color: rebeccapurple;
+  background-color: var(--colourmain);
 }
 button {
   min-height: 2.75rem;
@@ -30,4 +33,15 @@ input {
 .form--group + .form--group,
 .form--group + button {
   margin-top: 1rem;
+}
+.shoppinglist--header {
+  background: white;
+  color: var(--colourmain);
+  padding: 0.5rem;
+  margin-bottom: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.shoppinglist--groupform {
 }
