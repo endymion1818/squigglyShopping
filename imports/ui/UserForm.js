@@ -1,6 +1,12 @@
 import React, { Component } from "react"
+import styled from "styled-components"
 import LoginForm from "./LoginForm"
 import RegisterForm from "./RegisterForm"
+
+const Main = styled.main`
+  height: 100vh;
+  background: rebeccapurple;
+`
 
 class UserForm extends Component {
   state = {
