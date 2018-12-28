@@ -22,7 +22,7 @@ class UserForm extends Component {
       )
     }
     return (
-      <div>
+      <main>
         {registerOrLogin ? (
           <LoginForm client={client} />
         ) : (
@@ -33,7 +33,7 @@ class UserForm extends Component {
         >
           {registerOrLogin ? "Register" : "Login"}
         </button>
-      </div>
+      </main>
     )
   }
 }
