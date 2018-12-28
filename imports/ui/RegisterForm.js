@@ -28,17 +28,26 @@ export default class RegisterForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="register--form">
+        <h1>Register here:</h1>
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.registerUser}>
-          <input type="email" ref={input => (this.email = input)} />
-          <input type="password" ref={input => (this.password = input)} />
-          <label htmlFor="theanswer">What is the answer?</label>
-          <input
-            type="text"
-            name="theanswer"
-            ref={input => (this.theanswer = input)}
-          />
+          <div className="form--group">
+            <label htmlFor="email">Email address:</label>
+            <input type="email" ref={input => (this.email = input)} />
+          </div>
+          <div className="form--group">
+            <label htmlFor="password">Password</label>
+            <input type="password" ref={input => (this.password = input)} />
+          </div>
+          <div className="form--group">
+            <label htmlFor="theanswer">What is the answer?</label>
+            <input
+              type="text"
+              name="theanswer"
+              ref={input => (this.theanswer = input)}
+            />
+          </div>
           <button type="submit">Register User</button>
         </form>
       </div>

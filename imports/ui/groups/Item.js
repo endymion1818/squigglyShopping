@@ -21,7 +21,7 @@ class Item extends React.Component {
   render() {
     const { item } = this.props
     return (
-      <li>
+      <li className="group--item">
         <label
           htmlFor="item"
           style={{

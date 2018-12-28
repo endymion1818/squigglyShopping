@@ -29,7 +29,7 @@ class GoalForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="item--form">
         <input type="text" ref={input => (this.name = input)} />
         <button onClick={this.submitForm}>Submit</button>
       </div>

@@ -6,15 +6,16 @@ import GroupForm from "./GroupForm"
 import GoalForm from "./ItemForm"
 import Item from "./groups/Item"
 import UserForm from "./UserForm"
+import "./styles.css"
 
 const App = ({ loading, groups, client, user }) => {
   if (loading) return null
   return (
-    <div>
+    <main>
       <UserForm user={user} client={client} />
       {user._id && <GroupForm />}
       {user._id && (
-        <ul>
+        <ul className="group">
           {groups.map(group => (
             <li key={group._id}>
               <span
@@ -34,7 +35,7 @@ const App = ({ loading, groups, client, user }) => {
           ))}
         </ul>
       )}
-    </div>
+    </main>
   )
 }
 

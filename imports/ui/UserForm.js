@@ -1,14 +1,8 @@
-import React, { Component } from "react"
-import styled from "styled-components"
+import React from "react"
 import LoginForm from "./LoginForm"
 import RegisterForm from "./RegisterForm"
 
-const Main = styled.main`
-  height: 100vh;
-  background: rebeccapurple;
-`
-
-class UserForm extends Component {
+class UserForm extends React.Component {
   state = {
     login: true
   }
@@ -28,18 +22,26 @@ class UserForm extends Component {
       )
     }
     return (
-      <main>
+      <div className="user--form">
         {registerOrLogin ? (
-          <LoginForm client={client} />
+          <div>
+            <RegisterForm client={client} />
+            <br />
+            <p>Already registered? Login below:</p>
+          </div>
         ) : (
-          <RegisterForm client={client} />
+          <div>
+            <LoginForm client={client} />
+            <br />
+            <p>Not registered yet? Create an account:</p>
+          </div>
         )}
         <button
           onClick={() => this.setState({ registerOrLogin: !registerOrLogin })}
         >
           {registerOrLogin ? "Register" : "Login"}
         </button>
-      </main>
+      </div>
     )
   }
 }
