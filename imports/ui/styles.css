@@ -43,5 +43,27 @@ input {
   justify-content: space-between;
   align-content: center;
 }
+.shoppinglist--counter {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  align-self: center;
+}
+.shoppinglist--counter > div {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.shoppinglist--group {
+  margin: 1rem;
+}
 .shoppinglist--groupform {
+  margin: 1rem;
+  display: flex;
+}
+.shoppinglist--groupform input {
+  flex-grow: 1;
+}
+.shoppinglist--groupform button {
+  flex-grow: 0;
 }

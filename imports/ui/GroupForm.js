@@ -30,9 +30,13 @@ class GroupForm extends Component {
 
   render() {
     return (
-      <div className="group--form">
+      <div className="shoppinglist--groupform">
         {this.state.error && <p>{this.state.error}</p>}
-        <input type="text" ref={input => (this.name = input)} />
+        <input
+          type="text"
+          ref={input => (this.name = input)}
+          placeholder="aisle one top"
+        />
         <button onClick={this.submitForm}>Submit</button>
       </div>
     )

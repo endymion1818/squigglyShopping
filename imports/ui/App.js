@@ -3,7 +3,7 @@ import gql from "graphql-tag"
 import { graphql } from "react-apollo"
 import { withApollo } from "react-apollo"
 import GroupForm from "./GroupForm"
-import GoalForm from "./ItemForm"
+import ItemForm from "./ItemForm"
 import Item from "./groups/Item"
 import UserForm from "./UserForm"
 import "./styles.css"
@@ -13,7 +13,6 @@ const App = ({ loading, groups, client, user }) => {
   return (
     <main>
       <UserForm user={user} client={client} />
-      {user._id && <GroupForm />}
       {user._id && (
         <ul className="shoppinglist--group">
           {groups.map(group => (
@@ -30,11 +29,12 @@ const App = ({ loading, groups, client, user }) => {
                   <Item item={item} key={item._id} />
                 ))}
               </ul>
-              <GoalForm groupId={group._id} />
+              <ItemForm groupId={group._id} />
             </li>
           ))}
         </ul>
       )}
+      {user._id && <GroupForm />}
     </main>
   )
 }

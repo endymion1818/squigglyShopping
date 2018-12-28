@@ -13,7 +13,7 @@ class UserForm extends React.Component {
       return (
         <header className="shoppinglist--header">
           <h2>hello, username</h2>
-          <div>
+          <div className="shoppinglist--counter">
             <div>0</div>
             <small>items left</small>
           </div>
