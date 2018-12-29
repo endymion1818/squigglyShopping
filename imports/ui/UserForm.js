@@ -30,24 +30,24 @@ class UserForm extends React.Component {
     }
     return (
       <div className="user--form">
-        {registerOrLogin ? (
+        {/* {registerOrLogin ? (
           <div>
             <RegisterForm client={client} />
             <br />
             <p>Already registered? Login below:</p>
           </div>
-        ) : (
-          <div>
-            <LoginForm client={client} />
-            <br />
-            <p>Not registered yet? Create an account:</p>
-          </div>
-        )}
-        <button
+        ) : ( */}
+        <div>
+          <LoginForm client={client} />
+          <br />
+          {/* <p>Not registered yet? Create an account:</p> */}
+        </div>
+        {/* )} */}
+        {/* <button
           onClick={() => this.setState({ registerOrLogin: !registerOrLogin })}
         >
           {registerOrLogin ? "Register" : "Login"}
-        </button>
+        </button> */}
       </div>
     )
   }

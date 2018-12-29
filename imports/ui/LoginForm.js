@@ -19,7 +19,8 @@ export default class LoginForm extends Component {
   render() {
     return (
       <div className="login--form">
-        <h1>Login here:</h1>
+        <h1>Squiggly Shopping</h1>
+        <p>Plan and purchase the food with efficiency and speed!</p>
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.login}>
           <div className="form--group">
