@@ -10,7 +10,7 @@ const createItem = gql`
   }
 `
 
-class GoalForm extends Component {
+class ItemForm extends Component {
   submitForm = () => {
     this.props
       .createItem({
@@ -46,4 +46,4 @@ export default graphql(createItem, {
   options: {
     refetchQueries: ["Group"]
   }
-})(GoalForm)
+})(ItemForm)

@@ -23,6 +23,7 @@ const App = ({ loading, groups, client, user }) => {
                 }}
               >
                 {group.name}
+                {console.log(group.items)}
               </h3>
               <ul>
                 {group.items.map(item => (
