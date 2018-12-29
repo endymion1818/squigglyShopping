@@ -11,7 +11,10 @@ export default class RegisterForm extends Component {
       Accounts.createUser(
         {
           email: this.email.value,
-          password: this.password.value
+          password: this.password.value,
+          profile: {
+            name: this.name.value
+          }
         },
         error => {
           if (error) {
@@ -32,6 +35,10 @@ export default class RegisterForm extends Component {
         <h1>Register here:</h1>
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.registerUser}>
+          <div className="form--group">
+            <label htmlFor="name">Name:</label>
+            <input type="name" ref={input => (this.name = input)} />
+          </div>
           <div className="form--group">
             <label htmlFor="email">Email address:</label>
             <input type="email" ref={input => (this.email = input)} />

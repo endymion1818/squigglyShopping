@@ -12,7 +12,8 @@ class UserForm extends React.Component {
     if (user._id) {
       return (
         <header className="shoppinglist--header">
-          <h2>hello, username</h2>
+          {console.log(user)}
+          <h2>hello, {user.name}</h2>
           <div className="shoppinglist--counter">
             <div>0</div>
             <small>items left</small>
@@ -30,24 +31,24 @@ class UserForm extends React.Component {
     }
     return (
       <div className="user--form">
-        {/* {registerOrLogin ? (
+        {registerOrLogin ? (
           <div>
             <RegisterForm client={client} />
             <br />
             <p>Already registered? Login below:</p>
           </div>
-        ) : ( */}
-        <div>
-          <LoginForm client={client} />
-          <br />
-          {/* <p>Not registered yet? Create an account:</p> */}
-        </div>
-        {/* )} */}
-        {/* <button
+        ) : (
+          <div>
+            <LoginForm client={client} />
+            <br />
+            <p>Not registered yet? Create an account:</p>
+          </div>
+        )}
+        <button
           onClick={() => this.setState({ registerOrLogin: !registerOrLogin })}
         >
-          {registerOrLogin ? "Register" : "Login"}
-        </button> */}
+          {registerOrLogin ? "Login" : "Register"}
+        </button>
       </div>
     )
   }
