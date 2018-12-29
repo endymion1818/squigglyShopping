@@ -5,6 +5,6 @@ type Item {
 }
 
 extend type Mutation {
-  createGoal(name: String!, groupId: String!): Item
-  toggleGoal(_id: String!): Item
+  createItem(name: String!, groupId: String!): Item
+  toggleItem(_id: String!): Item
 }

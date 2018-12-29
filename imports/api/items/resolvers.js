@@ -2,18 +2,18 @@ import Items from "./items"
 
 export default {
   Mutation: {
-    createGoal(obj, { name, groupId }, { userId }) {
+    createItem(obj, { name, groupId }, { userId }) {
       if (userId) {
-        const goalId = Items.insert({
+        const itemId = Items.insert({
           name,
           groupId,
           completed: false
         })
-        return Items.findOne(goalId)
+        return Items.findOne(itemId)
       }
       throw new Error("You are not logged in!")
     },
-    toggleGoal(obj, { _id }) {
+    toggleItem(obj, { _id }) {
       const item = Items.findOne(_id)
       Items.update(_id, {
         $set: {
