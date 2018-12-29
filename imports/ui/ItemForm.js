@@ -35,7 +35,7 @@ class ItemForm extends Component {
           ref={input => (this.name = input)}
           placeholder="broccoli"
         />
-        <button onClick={this.submitForm}>Submit</button>
+        <button onClick={this.submitForm}>New item</button>
       </div>
     )
   }

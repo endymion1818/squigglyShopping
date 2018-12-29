@@ -37,7 +37,7 @@ class GroupForm extends Component {
           ref={input => (this.name = input)}
           placeholder="New group"
         />
-        <button onClick={this.submitForm}>Submit</button>
+        <button onClick={this.submitForm}>New group</button>
       </div>
     )
   }

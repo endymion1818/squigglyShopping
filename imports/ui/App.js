@@ -23,9 +23,8 @@ const App = ({ loading, groups, client, user }) => {
                 }}
               >
                 {group.name}
-                {console.log(group.items)}
               </h3>
-              <ul>
+              <ul className="group--items">
                 {group.items.map(item => (
                   <Item item={item} key={item._id} />
                 ))}

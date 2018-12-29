@@ -23,6 +23,7 @@ class Item extends React.Component {
     return (
       <li className="group--item">
         <label
+          className="checkbox--label"
           htmlFor="item"
           style={{
             textDecoration: item.completed ? "line-through" : "none"
@@ -35,6 +36,7 @@ class Item extends React.Component {
             checked={item.completed}
           />
           {item.name}
+          <span class="checkmark" />
         </label>
       </li>
     )
