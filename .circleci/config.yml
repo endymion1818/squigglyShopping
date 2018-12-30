@@ -15,4 +15,5 @@ test:
     - tests/test-runner/test-all.sh
 jobs:
   build:
-    - meteor build
+    steps:
+      - meteor build
