@@ -18,11 +18,27 @@ export default class LoginForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="login--form">
+        <h1>Squiggly Shopping</h1>
+        <p>Plan and purchase the food with efficiency and speed!</p>
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.login}>
-          <input type="email" ref={input => (this.email = input)} />
-          <input type="password" ref={input => (this.password = input)} />
+          <div className="form--group">
+            <label htmlFor="email">Email address:</label>
+            <input
+              type="email"
+              name="email"
+              ref={input => (this.email = input)}
+            />
+          </div>
+          <div className="form--group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              ref={input => (this.password = input)}
+            />
+          </div>
           <button type="submit">Login User</button>
         </form>
       </div>

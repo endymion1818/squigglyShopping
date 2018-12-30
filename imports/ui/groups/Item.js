@@ -2,17 +2,17 @@ import React from "react"
 import gql from "graphql-tag"
 import { graphql } from "react-apollo"
 
-const toggleGoal = gql`
-  mutation toggleGoal($id: String!) {
-    toggleGoal(_id: $id) {
+const toggleItem = gql`
+  mutation toggleItem($id: String!) {
+    toggleItem(_id: $id) {
       _id
     }
   }
 `
 
 class Item extends React.Component {
-  toggleGoal = () => {
-    this.props.toggleGoal({
+  toggleItem = () => {
+    this.props.toggleItem({
       variables: {
         id: this.props.item._id
       }
@@ -21,8 +21,9 @@ class Item extends React.Component {
   render() {
     const { item } = this.props
     return (
-      <li>
+      <li className="group--item">
         <label
+          className="checkbox--label"
           htmlFor="item"
           style={{
             textDecoration: item.completed ? "line-through" : "none"
@@ -31,17 +32,18 @@ class Item extends React.Component {
           <input
             type="checkbox"
             name="item"
-            onChange={this.toggleGoal}
+            onChange={this.toggleItem}
             checked={item.completed}
           />
           {item.name}
+          <span class="checkmark" />
         </label>
       </li>
     )
   }
 }
-export default graphql(toggleGoal, {
-  name: "toggleGoal",
+export default graphql(toggleItem, {
+  name: "toggleItem",
   options: {
     refetchQueries: ["Groups"]
   }

@@ -3,38 +3,39 @@ import gql from "graphql-tag"
 import { graphql } from "react-apollo"
 import { withApollo } from "react-apollo"
 import GroupForm from "./GroupForm"
-import GoalForm from "./ItemForm"
+import ItemForm from "./ItemForm"
 import Item from "./groups/Item"
 import UserForm from "./UserForm"
+import "./styles.css"
 
 const App = ({ loading, groups, client, user }) => {
   if (loading) return null
   return (
-    <div>
+    <main>
       <UserForm user={user} client={client} />
-      {user._id && <GroupForm />}
       {user._id && (
-        <ul>
+        <ul className="shoppinglist--group">
           {groups.map(group => (
             <li key={group._id}>
-              <span
+              <h3
                 style={{
                   textDecoration: group.completed ? "line-through" : "none"
                 }}
               >
                 {group.name}
-              </span>
-              <ul>
+              </h3>
+              <ul className="group--items">
                 {group.items.map(item => (
                   <Item item={item} key={item._id} />
                 ))}
               </ul>
-              <GoalForm groupId={group._id} />
+              <ItemForm groupId={group._id} />
             </li>
           ))}
         </ul>
       )}
-    </div>
+      {user._id && <GroupForm />}
+    </main>
   )
 }
 

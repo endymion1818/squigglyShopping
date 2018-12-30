@@ -1,8 +1,8 @@
-import React, { Component } from "react"
+import React from "react"
 import LoginForm from "./LoginForm"
 import RegisterForm from "./RegisterForm"
 
-class UserForm extends Component {
+class UserForm extends React.Component {
   state = {
     login: true
   }
@@ -11,28 +11,43 @@ class UserForm extends Component {
     const { registerOrLogin } = this.state
     if (user._id) {
       return (
-        <button
-          onClick={() => {
-            Meteor.logout()
-            client.resetStore()
-          }}
-        >
-          Logout
-        </button>
+        <header className="shoppinglist--header">
+          <h2>hello, username</h2>
+          <div className="shoppinglist--counter">
+            <div>0</div>
+            <small>items left</small>
+          </div>
+          <button
+            onClick={() => {
+              Meteor.logout()
+              client.resetStore()
+            }}
+          >
+            Logout
+          </button>
+        </header>
       )
     }
     return (
-      <div>
-        {registerOrLogin ? (
+      <div className="user--form">
+        {/* {registerOrLogin ? (
+          <div>
+            <RegisterForm client={client} />
+            <br />
+            <p>Already registered? Login below:</p>
+          </div>
+        ) : ( */}
+        <div>
           <LoginForm client={client} />
-        ) : (
-          <RegisterForm client={client} />
-        )}
-        <button
+          <br />
+          {/* <p>Not registered yet? Create an account:</p> */}
+        </div>
+        {/* )} */}
+        {/* <button
           onClick={() => this.setState({ registerOrLogin: !registerOrLogin })}
         >
           {registerOrLogin ? "Register" : "Login"}
-        </button>
+        </button> */}
       </div>
     )
   }
