@@ -7,6 +7,7 @@ export default {
     }
   },
   User: {
-    email: user => user.emails[0].address
+    email: user => user.emails[0].address,
+    name: user => user.profile.name
   }
 }
