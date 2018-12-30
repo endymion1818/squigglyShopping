@@ -9,8 +9,11 @@ machine:
     - curl https://install.meteor.com | /bin/sh
 dependencies:
   override:
-    - npm install selenium-webdriver@2.47.0 mkdirp
-    - meteor list
+    - meteor
 test:
   override:
     - tests/test-runner/test-all.sh
+jobs:
+  build:
+      steps:
+    - run: meteor build
