@@ -17,5 +17,4 @@ jobs:
   build:
     machine: true
     steps:
-      - run:
-        command: meteor build
+      - run: meteor build
