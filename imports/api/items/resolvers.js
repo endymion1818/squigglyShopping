@@ -21,6 +21,15 @@ export default {
         }
       })
       return Items.findOne(_id)
+    },
+    toggleAllItems(obj) {
+      const item = Items.find()
+      Items.update({
+        $set: {
+          completed: !item.completed
+        }
+      })
+      return Items.find()
     }
   }
 }

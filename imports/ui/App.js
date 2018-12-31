@@ -3,8 +3,7 @@ import gql from "graphql-tag"
 import { graphql } from "react-apollo"
 import { withApollo } from "react-apollo"
 import GroupForm from "./GroupForm"
-import ItemForm from "./ItemForm"
-import Item from "./groups/Item"
+import Group from "./groups/Group"
 import UserForm from "./UserForm"
 import "./styles.css"
 
@@ -19,21 +18,9 @@ const App = ({ loading, groups, client, user }) => {
       {user._id && (
         <ul className="shoppinglist--group">
           {sortedGroups.map(group => (
-            <li key={group._id}>
-              <h3
-                style={{
-                  textDecoration: group.completed ? "line-through" : "none"
-                }}
-              >
-                {group.name}
-              </h3>
-              <ul className="group--items">
-                {group.items.map(item => (
-                  <Item item={item} key={item._id} />
-                ))}
-              </ul>
-              <ItemForm groupId={group._id} />
-            </li>
+            <div>
+              <Group group={group} />
+            </div>
           ))}
         </ul>
       )}
