@@ -46,7 +46,7 @@ class UserForm extends React.Component {
         <button
           onClick={() => this.setState({ registerOrLogin: !registerOrLogin })}
         >
-          {registerOrLogin ? "Register" : "Login"}
+          {registerOrLogin ? "Login" : "Register"}
         </button>
       </div>
     )
