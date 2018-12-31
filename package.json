@@ -5,6 +5,7 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "@sentry/browser": "^4.4.2",
     "apollo-client": "^2.0.4",
     "apollo-client-preset": "^1.0.5",
     "babel-runtime": "^6.26.0",
