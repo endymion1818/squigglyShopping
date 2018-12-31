@@ -10,12 +10,15 @@ import "./styles.css"
 
 const App = ({ loading, groups, client, user }) => {
   if (loading) return null
+  const sortedGroups = groups.slice().sort(group => {
+    return group.completed === true
+  })
   return (
     <main>
       <UserForm user={user} client={client} />
       {user._id && (
         <ul className="shoppinglist--group">
-          {groups.map(group => (
+          {sortedGroups.map(group => (
             <li key={group._id}>
               <h3
                 style={{
