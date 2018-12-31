@@ -2,6 +2,7 @@ import React from "react"
 import gql from "graphql-tag"
 import { graphql } from "react-apollo"
 import { withApollo } from "react-apollo"
+import ErrorBoundary from "./ErrorBoundary"
 import GroupForm from "./GroupForm"
 import ItemForm from "./ItemForm"
 import Item from "./groups/Item"
@@ -14,31 +15,33 @@ const App = ({ loading, groups, client, user }) => {
     return group.completed === true
   })
   return (
-    <main>
-      <UserForm user={user} client={client} />
-      {user._id && (
-        <ul className="shoppinglist--group">
-          {sortedGroups.map(group => (
-            <li key={group._id}>
-              <h3
-                style={{
-                  textDecoration: group.completed ? "line-through" : "none"
-                }}
-              >
-                {group.name}
-              </h3>
-              <ul className="group--items">
-                {group.items.map(item => (
-                  <Item item={item} key={item._id} />
-                ))}
-              </ul>
-              <ItemForm groupId={group._id} />
-            </li>
-          ))}
-        </ul>
-      )}
-      {user._id && <GroupForm />}
-    </main>
+    <ErrorBoundary>
+      <main>
+        <UserForm user={user} client={client} />
+        {user._id && (
+          <ul className="shoppinglist--group">
+            {sortedGroups.map(group => (
+              <li key={group._id}>
+                <h3
+                  style={{
+                    textDecoration: group.completed ? "line-through" : "none"
+                  }}
+                >
+                  {group.name}
+                </h3>
+                <ul className="group--items">
+                  {group.items.map(item => (
+                    <Item item={item} key={item._id} />
+                  ))}
+                </ul>
+                <ItemForm groupId={group._id} />
+              </li>
+            ))}
+          </ul>
+        )}
+        {user._id && <GroupForm />}
+      </main>
+    </ErrorBoundary>
   )
 }
 
