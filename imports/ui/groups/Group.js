@@ -5,12 +5,24 @@ import ItemForm from "./ItemForm"
 import Item from "./Item"
 
 const toggleAllItems = gql`
-  mutation toggleAllItems {
-    toggleAllItems
+  mutation toggleAllItems($groupId: String!) {
+    toggleAllItems(_id: $groupId) {
+      _id
+    }
   }
 `
 
 class Group extends Component {
+  constructor(props) {
+    super(props)
+  }
+  toggleAllItems = groupId => {
+    this.props.toggleAllItems({
+      variables: {
+        id: groupId
+      }
+    })
+  }
   render() {
     const { group } = this.props
     return (
@@ -24,7 +36,7 @@ class Group extends Component {
             {group.name}
           </h3>
           {group.completed && (
-            <button onChange={this.toggleAllItems}>Reset</button>
+            <button onChange={this.toggleAllItems(group._id)}>Reset</button>
           )}
         </div>
         <ul className="group--items">

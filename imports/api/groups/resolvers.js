@@ -34,6 +34,16 @@ export default {
         return Groups.findOne(groupId)
       }
       throw new Error("You are not logged in!")
+    },
+    toggleAllItems({ groupId }) {
+      const allItems = Items.find({
+        groupId: groupId
+      })
+      allItems.update({
+        $set: {
+          completed: !item.completed
+        }
+      })
     }
   }
 }

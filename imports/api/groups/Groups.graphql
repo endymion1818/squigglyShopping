@@ -11,5 +11,5 @@ type Query {
 
 type Mutation {
   createGroup(name: String!): Group
-  toggleAllItems(name: String): Group
+  toggleAllItems(_id: String!): Group
 }
