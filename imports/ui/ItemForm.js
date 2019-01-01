@@ -44,6 +44,6 @@ class ItemForm extends Component {
 export default graphql(createItem, {
   name: "createItem",
   options: {
-    refetchQueries: ["Group"]
+    refetchQueries: ["Groups"]
   }
 })(ItemForm)

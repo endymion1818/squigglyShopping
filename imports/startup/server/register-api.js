@@ -11,7 +11,7 @@ import GroupsResolvers from "../../api/groups/resolvers"
 import UsersSchema from "../../api/users/User.graphql"
 import UsersResolvers from "../../api/users/resolvers"
 
-// bfkjdslsfdaddfsaaaaa
+// bfkjdslsfdaddfsaaa
 
 const typeDefs = [GoalsSchema, GroupsSchema, UsersSchema]
 
