@@ -20,6 +20,7 @@ export default {
           completed: !item.completed
         }
       })
+      console.log("mutation")
       return Items.findOne(_id)
     },
     toggleAllItems(obj) {

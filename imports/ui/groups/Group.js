@@ -4,41 +4,42 @@ import { graphql } from "react-apollo"
 import ItemForm from "./ItemForm"
 import Item from "./Item"
 
-const toggleItems = gql`
-  mutation toggleItems {
-    toggleItems
+const toggleAllItems = gql`
+  mutation toggleAllItems {
+    toggleAllItems
   }
 `
 
 class Group extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     const { group } = this.props
     return (
-      <li>
-        <h3
-          style={{
-            textDecoration: group.completed ? "line-through" : "none"
-          }}
-        >
-          {group.name}
-        </h3>
+      <li className="group">
+        <div className="group--title">
+          <h3
+            style={{
+              textDecoration: group.completed ? "line-through" : "none"
+            }}
+          >
+            {group.name}
+          </h3>
+          {group.completed && (
+            <button onChange={this.toggleAllItems}>Reset</button>
+          )}
+        </div>
         <ul className="group--items">
           {group.items.map(item => (
             <Item item={item} key={item._id} />
           ))}
         </ul>
         <ItemForm groupId={group._id} />
-        {group.completed && <button onChange={this.toggleItems}>Reset</button>}
       </li>
     )
   }
 }
 
-export default graphql(toggleItems, {
-  name: "toggleItems",
+export default graphql(toggleAllItems, {
+  name: "toggleAllItems",
   options: {
     refetchQueries: ["Groups"]
   }

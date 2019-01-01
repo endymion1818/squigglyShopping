@@ -10,6 +10,7 @@ main {
   min-height: 100vh;
   color: white;
   background-color: var(--colourmain);
+  padding-bottom: 1rem;
 }
 button {
   min-height: 2.75rem;
@@ -155,8 +156,12 @@ input {
 .shoppinglist--group > li + .shoppinglist--group > li {
   margin-bottom: 1rem;
 }
-.shoppinglist--group > li h3 {
-  padding-bottom: 1rem;
+.shoppinglist--group > li > .group--title {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
   border-bottom: 1px solid white;
 }
 .shoppinglist--groupform input,
