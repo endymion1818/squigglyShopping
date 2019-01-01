@@ -15,7 +15,7 @@ blocks:
         - name: Docker build
           commands:
             - curl https://install.meteor.com/ | sh
-            - meteor build
+            - meteor build ./build --architecture os.linux.x86_64
             - echo "done"
 
   # - name: "Smoke tests"
