@@ -1,5 +1,6 @@
 :root {
   --colourmain: rebeccapurple;
+  --colorsecondary: gray;
 }
 body {
   margin: 0;
@@ -13,11 +14,29 @@ main {
   padding-bottom: 1rem;
 }
 button {
-  min-height: 2.75rem;
+  border: none;
+  background-image: none;
+  box-shadow: none;
+  background: white;
+  padding: 0.25rem 1.25rem;
+  border-radius: 0.25rem;
+  color: var(--colourmain);
+  font-weight: bold;
+}
+button:hover,
+button:active,
+button:focus {
+  background-color: var(--colorsecondary);
+  color: white;
 }
 input {
+  border: none;
+  background-image: none;
+  box-shadow: none;
   min-height: 1.75rem;
   margin-right: 1rem;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
 }
 .checkbox--label {
   display: block;
@@ -37,8 +56,10 @@ input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  height: 0;
-  width: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 90%;
 }
 
 /* Create a custom checkbox */

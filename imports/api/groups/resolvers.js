@@ -35,15 +35,12 @@ export default {
       }
       throw new Error("You are not logged in!")
     },
-    toggleAllItems({ groupId }) {
-      const allItems = Items.find({
-        groupId: groupId
-      })
-      allItems.update({
-        $set: {
-          completed: !item.completed
-        }
-      })
+    toggleAllItems(groupId) {
+      const group = Groups.find(groupId).update(
+        items.forEach(item => {
+          item.completed == !this.item.completed
+        })
+      )
     }
   }
 }
