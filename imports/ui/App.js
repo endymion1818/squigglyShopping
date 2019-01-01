@@ -18,9 +18,7 @@ const App = ({ loading, groups, client, user }) => {
       {user._id && (
         <ul className="shoppinglist--group">
           {sortedGroups.map(group => (
-            <div>
-              <Group group={group} />
-            </div>
+            <Group group={group} key={group._id} />
           ))}
         </ul>
       )}

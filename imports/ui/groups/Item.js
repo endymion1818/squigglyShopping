@@ -11,18 +11,18 @@ const toggleItem = gql`
 `
 
 class Item extends React.Component {
-  // toggleItem = () => {
-  //   this.props.toggleItem({
-  //     variables: {
-  //       id: this.props.item._id
-  //     }
-  //   })
-  // }
+  toggleItem = () => {
+    this.props.toggleItem({
+      variables: {
+        id: this.props.item._id
+      }
+    })
+  }
   render() {
-    // const { item } = this.props
+    const { item } = this.props
     return (
       <li className="group--item">
-        {/* <label
+        <label
           className="checkbox--label"
           htmlFor="item"
           style={{
@@ -36,8 +36,8 @@ class Item extends React.Component {
             checked={item.completed}
           />
           {item.name}
-          <span class="checkmark" />
-        </label> */}
+          <span className="checkmark" />
+        </label>
       </li>
     )
   }

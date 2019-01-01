@@ -11,12 +11,14 @@ const toggleItems = gql`
 `
 
 class Group extends Component {
+  constructor(props) {
+    super(props)
+  }
   render() {
-    // const { group } = this.props
+    const { group } = this.props
     return (
       <li>
-        {console.log(this.props)}
-        {/* <h3
+        <h3
           style={{
             textDecoration: group.completed ? "line-through" : "none"
           }}
@@ -29,7 +31,7 @@ class Group extends Component {
           ))}
         </ul>
         <ItemForm groupId={group._id} />
-        {group.completed && <button onChange={this.toggleItems}>Reset</button>} */}
+        {group.completed && <button onChange={this.toggleItems}>Reset</button>}
       </li>
     )
   }
@@ -40,4 +42,4 @@ export default graphql(toggleItems, {
   options: {
     refetchQueries: ["Groups"]
   }
-})(Item)
+})(Group)
