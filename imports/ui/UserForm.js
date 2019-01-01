@@ -12,8 +12,8 @@ class UserForm extends React.Component {
     if (user._id) {
       return (
         <header className="shoppinglist--header">
-          {console.log(user)}
           <h2>hello, {user.name}</h2>
+          {console.log(user)}
           <div className="shoppinglist--counter">
             <div>0</div>
             <small>items left</small>
